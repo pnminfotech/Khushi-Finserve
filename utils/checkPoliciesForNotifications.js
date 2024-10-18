@@ -23,7 +23,7 @@ const sendReminderEmail = (policy, daysDiff) => {
 
     This is a friendly reminder that your ${policy.productName} (Policy No: ${policy.policyNumber}) is set to expire on ${endDate.toLocaleDateString()}. You have ${daysDiff} days left to renew your policy.
     
-    To renew, simply [click here]-(${renewalLink}) or reach out to your agent at [Agent Contact Info].
+    To renew, simply [click here]-(${renewalLink}) or reach out to your agent.
     
     Best regards,
     Khushi Finserv Team
@@ -36,11 +36,11 @@ const sendReminderEmail = (policy, daysDiff) => {
 
 The policy for ${policy.clientName} (Policy No: ${policy.policyNumber}) is set to expire on ${endDate.toLocaleDateString()}. There are ${daysDiff} days left for renewal.
 
-Please reach out to the client or ensure that the policy is renewed promptly. You can view more details or assist the client by [clicking here]- (${renewalLink})</a>.
+Please reach out to the client or ensure that the policy is renewed promptly. You can view more details or assist the client by [clicking here]- (${renewalLink}).
 
 Best regards,
 Khushi Finserv Team
-[Contact Info]`;
+`;
 
     // Send email to the agent
     sendEmail(policy.agentEmail, subject, agentText);
@@ -55,7 +55,7 @@ const sendMonthlyAdminEmail = async (policies) => {
         adminText += ` - ${policy.clientName} - ${policy.productName} - ${policy.agentName} - Expiring on ${endDate.toLocaleDateString()} - Remaining Days: ${daysDiff}\n`;
     });
 
-    adminText += `\nPlease ensure the respective agents have contacted the clients.\n\nBest regards,\nKhushi Finserv\n[Contact Info]`;
+    adminText += `\nPlease ensure the respective agents have contacted the clients.\n\nBest regards,\nKhushi Finserv`;
 
     // Send email to the admin
     sendEmail(process.env.ADMIN_EMAIL, subject, adminText);
@@ -71,7 +71,7 @@ const checkPoliciesForNotifications = async () => {
         
         // Store policies for the admin's monthly report with daysDiff
         const upcomingPolicies = [];
-        const isFirstOfMonth = today.getDate() === 1; // Check if today is the 1st of the month
+        const isFirstOfMonth = today.getDate() === 19; // Check if today is the 1st of the month
 
         policies.forEach(policy => {
             const endDate = new Date(policy.endDate);
