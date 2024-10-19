@@ -21,7 +21,7 @@ const sendReminderEmail = (policy, daysDiff) => {
 
     const clientText = `Dear ${policy.clientName},
 
-    This is a friendly reminder that your ${policy.productName} (Policy No: ${policy.policyNumber}) is set to expire on ${endDate.toLocaleDateString()}. You have ${daysDiff} days left to renew your policy.
+    This is a friendly reminder that your ${policy.company} (Policy No: ${policy.policyNumber}) is set to expire on ${endDate.toLocaleDateString()}. You have ${daysDiff} days left to renew your policy.
     
     To renew, simply [click here]-(${renewalLink}) or reach out to your agent.
     
@@ -34,7 +34,7 @@ const sendReminderEmail = (policy, daysDiff) => {
 
     const agentText = `Hi ${policy.agentName},
 
-The policy for ${policy.clientName} (Policy No: ${policy.policyNumber}) is set to expire on ${endDate.toLocaleDateString()}. There are ${daysDiff} days left for renewal.
+The policy for ${policy.clientName} (Policy No: ${policy.policyNumber}) from ${policy.company} is set to expire on ${endDate.toLocaleDateString()}. There are ${daysDiff} days left for renewal.
 
 Please reach out to the client or ensure that the policy is renewed promptly. You can view more details or assist the client by [clicking here]- (${renewalLink}).
 

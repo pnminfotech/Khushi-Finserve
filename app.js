@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const policyRoutes = require('./routes/policyRoutes');
+const userRoutes = require('./routes/userRoutes');
 const cron = require('node-cron');
 const checkPoliciesForNotifications = require('./utils/checkPoliciesForNotifications'); // Correct import
 const sendEmail = require('./utils/sendEmail');
@@ -18,6 +19,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
+app.use('/api/users', userRoutes);
 app.use('/api', policyRoutes);
 
 // Test route to send email
