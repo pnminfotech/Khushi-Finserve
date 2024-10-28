@@ -16,6 +16,27 @@ const generateToken = (id) => {
 };
 
 // Register a new user
+// exports.registerUser = async (req, res) => {
+//     const { username, email, password } = req.body;
+
+//     try {
+//         const userExists = await User.findOne({ email });
+//         if (userExists) {
+//             return res.status(400).json({ message: 'User already exists' });
+//         }
+
+//         const user = await User.create({ username, email, password });
+//         res.status(201).json({
+//             _id: user._id,
+//             username: user.username,
+//             email: user.email,
+//             token: generateToken(user._id),
+//         });
+//     } catch (error) {
+//         console.error('Error registering user:', error);  // Log the exact error
+//         res.status(500).json({ message: 'Server Error' });
+//     }
+// };
 exports.registerUser = async (req, res) => {
     const { username, email, password } = req.body;
 
