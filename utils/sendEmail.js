@@ -10,12 +10,18 @@ const transporter = nodemailer.createTransport({
 });
 
 // Function to send email
-const sendEmail = async (to, subject, text) => {
+const sendEmail = async (to, subject, text,attachmentPath = null) => {
     const mailOptions = {
         from: process.env.EMAIL_USER, // Sender address
         to: to,                        // Recipient address
         subject: subject,              // Email subject
-        text: text                     // Email body
+        text: text ,                    // Email body
+        attachments: attachmentPath ? [
+            {
+                filename: 'Expiring_Policies.xlsx',
+                path: attachmentPath
+            }
+        ] : []
     };
 
     try {
