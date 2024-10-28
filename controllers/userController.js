@@ -22,6 +22,7 @@ exports.registerUser = async (req, res) => {
     try {
         const userExists = await User.findOne({ email });
         if (userExists) {
+            // Return 400 status with a clear error message
             return res.status(400).json({ message: 'User already exists' });
         }
 
@@ -33,10 +34,11 @@ exports.registerUser = async (req, res) => {
             token: generateToken(user._id),
         });
     } catch (error) {
-        console.error('Error registering user:', error);  // Log the exact error
+        console.error('Error registering user:', error);
         res.status(500).json({ message: 'Server Error' });
     }
 };
+
 
 // Login a user
 exports.authUser = async (req, res) => {
