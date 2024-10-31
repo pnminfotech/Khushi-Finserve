@@ -15,7 +15,16 @@ require('dotenv').config();
 connectDB();
 
 // Middleware
-app.use(cors());
+// app.use(cors());
+const corsOptions = {
+    origin: 'https://pnminfotech.com', // Allow the main domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  };
+  
+  app.use(cors(corsOptions));
+  
+
 app.use(bodyParser.json());
 
 // Routes

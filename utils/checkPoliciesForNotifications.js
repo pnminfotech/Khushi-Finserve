@@ -117,7 +117,7 @@ const checkPoliciesForNotifications = async () => {
         
         // Store policies for the admin's monthly report with daysDiff
         const upcomingPolicies = [];
-        const isFirstOfMonth = today.getDate() === 1; // Check if today is the 1st of the month
+        const isFirstOfMonth = today.getDate() === 31; // Check if today is the 1st of the month
 
         policies.forEach(policy => {
             const endDate = new Date(policy.endDate);
