@@ -57,8 +57,7 @@ const sendReminderEmail = (policy, daysDiff) => {
     To renew, simply [click here]-(${renewalLink}) or reach out to your agent.
     
     Best regards,
-    Khushi Finserv Team
-    [Contact Info / Footer with Social Links]`;
+    Khushi Finserve Team`;
 
     // Send email to the client
     sendEmail(policy.clientEmail, subject, clientText);
@@ -70,7 +69,7 @@ The policy for ${policy.clientName} (Policy No: ${policy.policyNumber}) from ${p
 Please reach out to the client or ensure that the policy is renewed promptly. You can view more details or assist the client by [clicking here]- (${renewalLink}).
 
 Best regards,
-Khushi Finserv Team
+Khushi Finserve Team
 `;
 
     // Send email to the agent
@@ -95,7 +94,7 @@ Khushi Finserv Team
 
 const sendMonthlyAdminEmail = async (policies) => {
     const subject = `Monthly Policy Expiration Summary`;
-    const adminText = `Hi Admin,\n\nHere’s your monthly report for policies expiring in this month.\n\nPlease find the attached Excel file for detailed information.\n\nBest regards,\nKhushi Finserv`;
+    const adminText = `Hi Admin,\n\nHere’s your monthly report for policies expiring in this month.\n\nPlease find the attached Excel file for detailed information.\n\nBest regards,\nKhushi Finserve`;
 
     // Create the Excel file and get its path
     const filePath = createExcelFile(policies);
